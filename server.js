@@ -1,6 +1,7 @@
 var express=require('express');
 var app=express();
 var mongoose=require('mongoose');
+mongoose.Promise = require('bluebird');
 var bodyParser=require('body-parser');
 var morgan=require('morgan');
 var passport=require('passport');
