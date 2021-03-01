@@ -21,7 +21,7 @@ var UserSchema=new mongoose.Schema({
 });
 
 //Save the user's hashed password
-
+//this will get fire before doc save
 UserSchema.pre('save',function(next){
   var user=this;
   if(this.isModified('password') || this.isNew){
@@ -43,7 +43,6 @@ UserSchema.pre('save',function(next){
 });
 
 //Create method to comapre password
-
 UserSchema.methods.comparePassword=function(pw,cb){
   bcrypt.compare(pw,this.password,function(err,isMatch){
     if(err){

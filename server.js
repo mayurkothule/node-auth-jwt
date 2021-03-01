@@ -46,5 +46,6 @@ app.get('/',function(req,res){
   res.send('Relax. We will put the home page here later.');
 });
 
-app.listen(port);
-console.log('Your server is running on port '+port+ '. ');
+app.listen(port,function(req,res){
+  console.log('Your server is running on port '+port+ '... ');
+});

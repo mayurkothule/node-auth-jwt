@@ -68,12 +68,13 @@ apiRoutes.get('/logout',function(req,res){
 //   res.send('It worked! user id is: '+ req.user._id + '.');
 // });
 
-apiRoutes.get('/dashboard',auth.authorizeUser, function(req, res) {
-   res.json({ id:req.user._id,message:'success',code:200});
+apiRoutes.get('/dashboard/:userId',auth.authorizeUser, function(req, res) {
+   res.json({ id:req.user._id, userId: req.params.userId,message:'success',code:200});
 });
 
 apiRoutes.get('/home',auth.authorizeUser, function(req, res) {
-   res.json({ message: 'Welcome to home page',code:200});
+   const userId = req.query.userId;
+   res.json({ message: 'Welcome to home page', userId, code:200});
 });
 
 
